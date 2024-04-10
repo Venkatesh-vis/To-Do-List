@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do LIST</title>
+    <style>
+        table {
+            margin: 0 auto;
+            width: 70%;
+        }
+
+        body {
+            background-color: #00DBDE;
+            background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+        }
+
+        #it {
+            height: 30px;
+            width: 700px;
+        }
+
+        #bt {
+            font-weight: bold;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">TO-DO LIST</h1>
+    <form action="" style="margin-left: 350px; margin-bottom: 20px;">
+        <input type="text" name="" id="it" placeholder="Enter your tasks">
+        <input type="button" value="Add Task" id="bt">
+    </form>
+    <h3></h3>
+    <table class="tbl">
+        <tr>
+            <th class="task">TASK</th>
+            <th class="action">ACTION</th>
+        </tr>
+        <tbody id="tablelist">
+
+        </tbody>
+    </table>
+    <script>
+
+        var d = document.getElementById("bt")
+        d.style.backgroundColor = "#AB3A22"
+        d.style.padding = "10px"
+
+        var zz = document.getElementsByTagName("h3")
+
+
+        d.onclick = add
+
+        del = []
+
+        function add() {
+
+            
+
+                var z = document.getElementById("it")
+                var res = z.value
+                if (res.length > 1) {
+
+                var tablebody = document.getElementById("tablelist")
+                var bb = document.createElement("tr")
+
+                var cc = document.createElement("td")
+                cc.innerText = res
+                cc.style.backgroundColor = "black"
+                cc.style.borderRadius = "10px"
+                cc.style.textAlign = "center"
+                cc.style.color = "white"
+
+                var dd = document.createElement("td")
+                var ee = document.createElement("button")
+                ee.style.background = ""
+                ee.style.width = "100%"
+                ee.style.backgroundColor = "yellow"
+                ee.style.padding = "5px"
+                ee.style.fontWeight = "bold"
+                ee.style.cursor = "pointer"
+                ee.style.fontSize = "15px"
+                ee.style.borderRadius = "7px"
+                ee.innerHTML = "Delete"
+
+                ee.onclick = function () {
+                    tablebody.removeChild(bb);
+                };
+
+                dd.appendChild(ee)
+                tablebody.appendChild(bb)
+                bb.appendChild(cc)
+                bb.appendChild(dd)
+
+                del.push(z.value)
+
+                z.value = ""
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
